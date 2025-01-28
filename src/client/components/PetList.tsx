@@ -26,14 +26,13 @@ const PetList = () => {
     const fetchPets = async () => {
       try {
         const response = await fetch("/api/pets");
-        console.table(response);
         if (!response.ok) {
-          throw new Error("Failed to fetch pets 2");
+          throw new Error("Failed to fetch pets");
         }
         const data = await response.json();
         setPets(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to fetch pets 3");
+        setError(err instanceof Error ? err.message : "Failed to fetch pets");
       }
     };
 

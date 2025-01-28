@@ -5,11 +5,15 @@
   "type": "module",
   "scripts": {
     "dev:client": "vite",
-    "dev:server": "ts-node-dev --esm --respawn --transpile-only --project tsconfig.server.json src/server/index.ts",
+    "dev:server": "nodemon --exec tsx src/server/index.ts",
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
     "build": "tsc -p tsconfig.server.json && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
@@ -38,6 +42,8 @@
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
+    "tslib": "^2.8.1",
+    "tsx": "^4.19.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"
